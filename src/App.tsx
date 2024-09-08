@@ -1,13 +1,8 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
 import tempLogo from "./assets/logo.jpg";
-import viteLogo from "/vite.svg";
 import Box from "@mui/material/Box";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
       <Box>
