@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import tempLogo from "./assets/MegaSquad.png";
 import Box from "@mui/material/Box";
 import "./App.css";
