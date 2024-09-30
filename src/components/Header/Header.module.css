@@ -1,0 +1,41 @@
+/* header.module.css */
+.header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 56px; /* Use px directly */
+  background-color: #5a8d50;
+  z-index: 1000;
+  padding: 5px 0;
+  border-bottom: 1px solid #162930;
+}
+
+.header img {
+  max-height: 50px;
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: center;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.link {
+  padding: 8px 12px; /* Use px directly */
+  text-decoration: none;
+  border-radius: 0.5rem;
+  color: #f9f9f9;
+}
+
+.navigation {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.link:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #14322f;
+}
