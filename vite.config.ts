@@ -6,8 +6,8 @@ import { config } from "dotenv";
 // Load environment variables from .env
 config();
 
-console.log("Process Environment:", process.env);
-// Check if VITE_API_URL is defined
+console.log("VITE_API_URL:", process.env.VITE_API_URL); // Check if VITE_API_URL is defined
+
 const apiUrl = process.env.VITE_API_URL;
 
 if (!apiUrl) {
