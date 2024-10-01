@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Games from "./Games";
-import Box from "@mui/material/Box";
+// import Box from "@mui/material/Box";
+import { Box, CircularProgress } from "@mui/material";
 import "../App.css";
 
 interface Game {
@@ -43,7 +44,19 @@ function Home() {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        height="100vh" // Full viewport height
+      >
+        <CircularProgress
+          size={60} // Adjust size as needed
+          sx={{ color: "#5a8d50" }} // Custom color
+        />
+      </Box>
+    );
   }
 
   // if (error) {
