@@ -1,8 +1,14 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import * as process from "process";
+import { config } from "dotenv";
 
+// Load environment variables from .env
+config();
+
+console.log("Process Environment:", process.env);
 // Check if VITE_API_URL is defined
-const apiUrl = "https://pickems.ball.farm/";
+const apiUrl = process.env.VITE_API_URL;
 
 if (!apiUrl) {
   throw new Error("VITE_API_URL is not defined. Please check your .env files.");
