@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -8,7 +8,7 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 
 function Auth() {
-  const [username, setUsername] = useState<String>();
+  const [username, setUserName] = useState<String>();
   const [email, setEmail] = useState<String>();
   const [fullName, setFullName] = useState<String>();
   const [password, setPassword] = useState<String>("");
@@ -17,52 +17,53 @@ function Auth() {
 
   const minLength = 12;
 
-  const handleSignup = async () => {
-    const response = await fetch("/signup", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        username,
-        email,
-        fullName,
-        disabled: false,
-        hashed_password: password,
-      }),
-    });
+  // const handleSignup = async () => {
+  //   const response = await fetch("/signup", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       username,
+  //       email,
+  //       fullName,
+  //       disabled: false,
+  //       hashed_password: password,
+  //     }),
+  //   });
 
-    if (response.ok) {
-      // Handle successful signup, e.g., redirect to login
-    } else {
-      // Handle error
-      const errorData = await response.json();
-      console.error("Signup error:", errorData);
-    }
-  };
+  //   if (response.ok) {
+  //     // Handle successful signup, e.g., redirect to login
+  //   } else {
+  //     // Handle error
+  //     const errorData = await response.json();
+  //     console.error("Signup error:", errorData);
+  //   }
+  // };
 
-  const handleLogin = async () => {
-    const response = await fetch("/token", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        username,
-        password,
-      }),
-    });
+  // const handleLogin = async () => {
+  //   const response = await fetch("/token", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       username,
+  //       password,
+  //     }),
+  //   });
 
-    if (response.ok) {
-      const data = await response.json();
-      localStorage.setItem("authToken", data.token); // Store the auth token
-      // Redirect or handle successful login
-    } else {
-      // Handle login error
-      const errorData = await response.json();
-      console.error("Login error:", errorData);
-    }
-  };
+  //   if (response.ok) {
+  //     const data = await response.json();
+  //     localStorage.setItem("authToken", data.token); // Store the auth token
+  //     // Redirect or handle successful login
+  //   } else {
+  //     // Handle login error
+  //     const errorData = await response.json();
+  //     console.error("Login error:", errorData);
+  //   }
+  // };
+
   return (
     <Box component="form">
       <h2>Sign Up / Log in</h2>
@@ -76,6 +77,12 @@ function Auth() {
             size="small"
             value={fullName}
             onChange={(event) => setFullName(event.target.value)}
+          />
+          <TextField
+            placeholder="User Name"
+            size="small"
+            value={username}
+            onChange={(event) => setUserName(event.target.value)}
           />
           <TextField
             placeholder="Email"
@@ -98,6 +105,7 @@ function Auth() {
               color: "hsl(var(--hue) 80% 40%)",
             }}
           />
+          {/* @ts-ignore next-line */}
           <Typography
             level="body-xs"
             sx={{ alignSelf: "flex-end", color: "hsl(var(--hue) 80% 30%)" }}
