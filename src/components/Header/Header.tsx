@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import { Container, Group } from "@mantine/core";
+import { Link } from "react-router-dom";
 import Box from "@mui/material/Box";
 import MegaSquadSmall from "../../assets/MegaSquadSmall.png";
 import classes from "./Header.module.css";
@@ -15,18 +15,17 @@ export function Header() {
   const [active, setActive] = useState(links[0].link);
 
   const items = links.map((link) => (
-    <a
+    <Link
       key={link.label}
-      href={link.link}
+      to={link.link}
       className={classes.link}
       data-active={active === link.link || undefined}
-      onClick={(event) => {
-        event.preventDefault();
+      onClick={() => {
         setActive(link.link);
       }}
     >
       {link.label}
-    </a>
+    </Link>
   ));
 
   return (

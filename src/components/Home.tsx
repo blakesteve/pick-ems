@@ -91,7 +91,7 @@ function Home() {
         <img src={tempLogo} className="logo" alt="Pick Ems logo" />
       </Box> */}
       <Box>
-        <h1>Games</h1>
+        <h2>Games</h2>
         {error ? (
           <div>Error: {error}</div>
         ) : (
